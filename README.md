@@ -2,7 +2,9 @@
 
 :arrow_upper_right:: https://nytarticlesearch.herokuapp.com/
 
-This project contains step-by-step files for a basic CRUD app that demonstrates [NYT Article Search API](https://developer.nytimes.com/article_search_v2.json), utilizes React to build and route UI components, and Node, Express, and MongoDB to retrieve and delete bookmarked articles.
+This project contains step-by-step development process files for a basic CRUD app that demonstrates the use of [NYT Article Search API](https://developer.nytimes.com/article_search_v2.json).
+
+The app utilizes React to build and route UI components, and also Node, Express, and MongoDB to retrieve and delete bookmarked articles.
 
 ```
 .
