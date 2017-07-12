@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>NYT Article Search</title>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
+
+	<!-- Font-Awesome -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+	<!-- Content goes here -->
+	<div id="app">
+    <!-- Main Component -->
+    <main class="container">
+
+      <!-- Navbar -->
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button
+              type="button"
+              class="navbar-toggle"
+              data-toggle="collapse"
+              data-target=".navbar-ex1-collapse"
+              >
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" to="/">NYT Article Scrubber</a>
+          </div>
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a to="/search">
+                  <i class="fa fa-search" aria-hidden="true"></i>&nbsp;
+                  Search
+                </a>
+              </li>
+              <li>
+                <a to="/bookmarks">
+                  <i class="fa fa-bookmark" aria-hidden="true"></i>&nbsp;
+                  Bookmarks
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Jumbotron -->
+      <div class="jumbotron text-center">
+        <h3><em>Search for and save news articles of interest</em></h3>
+      </div>
+
+      <!-- Children Components -->
+
+      <!-- Search -->
+      <div class="search-wrapper">
+        <!-- Query -->
+        <div id="query" class="row">
+            <div class="col-lg-12">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">
+                    <strong>
+                      <i class="fa fa-search" aria-hidden="true"></i>&nbsp;
+                      Query
+                    </strong>
+                  </h3>
+                </div>
+                <div class="panel-body">
+                  <form class="form-horizontal" onSubmit="">
+                    <div class="form-group">
+                      <label class="col-sm-2 col-md-2 control-label" for="search"><strong>Topic</strong></label>
+                      <div class="col-sm-10 col-md-10">
+                        <input
+                          class="form-control"
+                          id="search"
+                          type="text"
+                          value=""
+                          onChange=""
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 col-md-2 control-label" for="start"><strong>Start Year</strong></label>
+                      <div class="col-sm-4 col-md-4">
+                        <input
+                          class="form-control"
+                          id="startYr"
+                          type="number"
+                          min="1990"
+                          max="2017"
+                          step="1"
+                          value=""
+                          onChange=""
+                          required
+                        />
+                      </div>
+                      <label class="col-sm-2 col-md-2 control-label" for="end"><strong>End Year</strong></label>
+                      <div class="col-sm-4 col-md-4">
+                        <input
+                          class="form-control"
+                          id="endYr"
+                          type="number"
+                          min="1990"
+                          max="2017"
+                          step="1"
+                          value=""
+                          onChange=""
+                          required
+                        />
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-default pull-right">
+                      Submit
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        <!-- Results -->
+        <div id="results" class="row">
+          <div class="col-lg-12">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <strong>
+                    <i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;
+                    Results
+                  </strong>
+                </h3>
+              </div>
+              <div class="panel-body">
+
+                <!-- If no results -->
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <h3 class="text-center"><em>No articles found!</em></h3>
+                  </li>
+                </ul>
+
+                <ul class="list-group">
+                  <li class="list-group-item" key="1">
+                    <h3>
+                      <button class="btn btn-primary pull-right" onClick="">
+                        <i class="fa fa-bookmark" aria-hidden="true"></i>
+                      </button>
+                      <a href="" rel="noopener noreferrer" target="_blank"><em>"Well, I must go to Oz and get my heart," said the Woodman</em></a>
+                    </h3>
+                    <p>Date Published: <em>June 4, 2017 12:48 PM ET</em></p>
+                  </li>
+                  <li class="list-group-item" key="2">
+                    <h3>
+                      <button class="btn btn-primary pull-right" onClick="">
+                        <i class="fa fa-bookmark" aria-hidden="true"></i>
+                      </button>
+                      <a href="" rel="noopener noreferrer" target="_blank"><em>So he walked to the Throne Room and knocked at the door</em></a>
+                    </h3>
+                    <p>Date Published: <em>June 4, 2017 12:48 PM ET</em></p>
+                  </li>
+                  <li class="list-group-item" key="3">
+                    <h3>
+                      <button class="btn btn-primary pull-right" onClick="">
+                        <i class="fa fa-bookmark" aria-hidden="true"></i>
+                      </button>
+                      <a href="" rel="noopener noreferrer" target="_blank"><em>"Come in," called Oz, and the Woodman entered</em></a>
+                    </h3>
+                    <p>Date Published: <em>June 4, 2017 12:48 PM ET</em></p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bookmarks -->
+      <div class="bookmarks-wrapper">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <strong>
+                    <i class="fa fa-bookmark" aria-hidden="true"></i>&nbsp;
+                    Bookmarks
+                  </strong>
+                </h3>
+              </div>
+              <div class="panel-body">
+
+                <!-- If no bookmarks -->
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <h3 class="text-center"><em>You have no articles bookmarked.</em></h3>
+                  </li>
+                </ul>
+
+                <ul class="list-group">
+                  <li class="list-group-item" key="1">
+                    <h3>
+                      <button class="btn btn-primary pull-right" onClick="">
+                        <i class="fa fa-remove" aria-hidden="true"></i>
+                      </button>
+                      <a href="" rel="noopener noreferrer" target="_blank"><em>So Oz brought a pair of tinsmith's shears and cut a small, square hole in the left side of the Tin Woodman's breast</em></a>
+                    </h3>
+                    <p>Date Published: <em>June 4, 2017 12:48 PM ET</em></p>
+                  </li>
+                  <li class="list-group-item" key="2">
+                    <h3>
+                      <button class="btn btn-primary pull-right" onClick="">
+                        <i class="fa fa-remove" aria-hidden="true"></i>
+                      </button>
+                      <a href="" rel="noopener noreferrer" target="_blank"><em>Then, going to a chest of drawers, he took out a pretty heart, made entirely of silk and stuffed with sawdust</em></a>
+                    </h3>
+                    <p>Date Published: <em>June 4, 2017 12:48 PM ET</em></p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer>
+        <hr />
+        <p class="text-center">
+          Coding Boot Camp &copy; 2016. All Rights Reserved.
+        </p>
+      </footer>
+
+    </main>
+	</div>
+	<script src="bundle.js"></script>
+
+</body>
+</html>
